@@ -16,7 +16,7 @@
         <span class="info-box-icon bg-info"><i class="fas fa-business-time"></i></span>
         <div class="info-box-content">
           <span class="info-box-text">Line Of Buisness</span>
-          <span class="info-box-number">5</span>
+          <span class="info-box-number">{{ count($lineOfBuisness) }}</span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -25,28 +25,32 @@
     </div>
     <!-- /.col -->
     <div class="col-md-3 col-sm-6 col-12">
+        <a href="{{ route('state.index') }}">
       <div class="info-box">
         <span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
 
         <div class="info-box-content">
           <span class="info-box-text">State</span>
-          <span class="info-box-number">410</span>
+          <span class="info-box-number">{{ count($state) }}</span>
         </div>
         <!-- /.info-box-content -->
       </div>
+    </a>
       <!-- /.info-box -->
     </div>
     <!-- /.col -->
     <div class="col-md-3 col-sm-6 col-12">
+        <a href="{{ route('city.index') }}">
       <div class="info-box">
         <span class="info-box-icon bg-warning"><i class="fas fa-city"></i></span>
 
         <div class="info-box-content">
           <span class="info-box-text">City</span>
-          <span class="info-box-number">13,648</span>
+          <span class="info-box-number">{{ count($cities) }}</span>
         </div>
         <!-- /.info-box-content -->
       </div>
+    </a>
       <!-- /.info-box -->
     </div>
     <!-- /.col -->
@@ -56,7 +60,7 @@
 
         <div class="info-box-content">
           <span class="info-box-text">Locations</span>
-          <span class="info-box-number">93,139</span>
+          <span class="info-box-number"></span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -69,14 +73,16 @@
   </div>
     <div class="row">
         <div class="col-md-3 col-sm-6 col-12">
+            <a href="{{ route('education.index') }}">
           <div class="info-box">
             <span class="info-box-icon bg-info"><i class="fas fa-user-graduate"></i></span>
             <div class="info-box-content">
               <span class="info-box-text">Education</span>
-              <span class="info-box-number">5</span>
+              <span class="info-box-number">{{ count($educations) }}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
+    </a>
           <!-- /.info-box -->
         </div>
         <!-- /.col -->

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
 use App\Models\LineOfBuisness;
+use App\Models\MsEducation;
+use App\Models\State;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,7 +18,11 @@ class LineOfBuisnessController extends Controller
      */
     public function configuation()
     {
-        return view('configuration.configuation');
+        $lineOfBuisness = LineOfBuisness::all();
+        $state = State::all();
+        $cities = City::all();
+        $educations = MsEducation::all();
+        return view('configuration.configuation', compact('lineOfBuisness', 'state', 'cities', 'educations'));
     }
     public function index()
     {

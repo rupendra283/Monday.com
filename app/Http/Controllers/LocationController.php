@@ -3,27 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
-use App\Models\Country;
 use App\Models\State;
 use Illuminate\Http\Request;
 
 class LocationController extends Controller
 {
-    public function index()
+    public function state()
     {
-        $data['countries'] = Country::get(["name", "id"]);
-        return view('welcome2', $data);
+        $states = State::with('country')->get();
+        return view('configuration.location.state', compact('states'));
     }
-
-    public function fetchState(Request $request)
+    public function city()
     {
-        $data['states'] = State::where("country_id", $request->country_id)->get(["name", "id"]);
-        return response()->json($data);
-    }
-
-    public function fetchCity(Request $request)
-    {
-        $data['cities'] = City::where("state_id", $request->state_id)->get(["name", "id"]);
-        return response()->json($data);
+        $cities = City::with('state')->get();
+        return view('configuration.location.city', compact('cities'));
     }
 }
