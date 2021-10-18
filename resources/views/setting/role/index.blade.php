@@ -1,35 +1,34 @@
 @extends('layouts.master')
-@section('title', 'Configuation')
+@section('title', 'Settings')
 @section('style')
 @endsection
 @section('content')
 <div class="card">
     <div class="card-header border-bottom pb-2">
-        Total Educations :
-    <a href="{{ route('education.create') }}" class="btn btn-primary btn-sm float-right">Add New</a>
+        Total Roles :
+    <a href="{{ route('role.create') }}" class="btn btn-primary btn-sm float-right">Add New</a>
     </div>
     <div class="card-body">
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
-                    <th>Sr asdNo</th>
-                    <th>Educations</th>
-                    <th>Description</th>
-                    <th>Created_at</th>
-                    <th>Action</th>
+                    <th>Sr No</th>
+                    <th>Role Name</th>
+                    {{-- <th>Locations</th> --}}
+                    <th>Status</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 @php
                     $x=1;
                 @endphp
-                @foreach ($educations as $item)
+                @foreach ($roles as $item)
                 <tr>
                     <td>{{ $x++ }}</td>
                     <td>{{ $item->name }}</td>
-                    <td>{{ $item->description }}</td>
-                    <td>{{ $item->created_at }}</td>
-                    <td>Edit</td>
+                    <td>{{ $item->status }}</td>
+                    <td><a href="">EDIT</a></td>
                 </tr>
                 @endforeach
             </tbody>
