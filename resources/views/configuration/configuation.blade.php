@@ -112,7 +112,6 @@
       </div>
      <div class="row mt-3">
          <p>Leave Setup</p>
-
      </div>
   </div>
     <div class="row">

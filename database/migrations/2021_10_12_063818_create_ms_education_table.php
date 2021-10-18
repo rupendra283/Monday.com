@@ -15,8 +15,8 @@ class CreateMsEducationTable extends Migration
     {
         Schema::create('ms_education', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('created_by')->nullable();
-            $table->unsignedInteger('updated_by')->nullable();
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->unsignedBigInteger('updated_by')->nullable();
             $table->string('name');
             $table->string('description')->nullable();
             $table->foreign('created_by')->references('id')->on('users');

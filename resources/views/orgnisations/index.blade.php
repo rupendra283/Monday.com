@@ -1,35 +1,38 @@
 @extends('layouts.master')
-@section('title', 'Configuation')
+@section('title', 'Orgnisations')
 @section('style')
 @endsection
 @section('content')
 <div class="card">
     <div class="card-header border-bottom pb-2">
-        Total Educations :
-    <a href="{{ route('education.create') }}" class="btn btn-primary btn-sm float-right">Add New</a>
+        Total Orgnisations :
+    <a href="{{ route('orgnisations.create') }}" class="btn btn-primary btn-sm float-right">Add New</a>
     </div>
     <div class="card-body">
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
-                    <th>Sr asdNo</th>
-                    <th>Educations</th>
-                    <th>Description</th>
-                    <th>Created_at</th>
-                    <th>Action</th>
+                    <th>Sr No</th>
+                    <th>Orgnisation Name</th>
+                    {{-- <th>Locations</th> --}}
+                    <th>Line Of Buisness</th>
+                    <th>Email</th>
+                    <th>Contact No</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 @php
                     $x=1;
                 @endphp
-                @foreach ($educations as $item)
+                @foreach ($orgnisations as $item)
                 <tr>
                     <td>{{ $x++ }}</td>
                     <td>{{ $item->name }}</td>
-                    <td>{{ $item->description }}</td>
-                    <td>{{ $item->created_at }}</td>
-                    <td>Edit</td>
+                    <td>{{ $item->lineOFBuisness->name }}</td>
+                    <td>{{ $item->email }}</td>
+                    <td>{{ $item->mobile_no }}</td>
+                    <td><a href="{{ route('orgnisations.edit',$item->id) }}">EDIT</a></td>
                 </tr>
                 @endforeach
             </tbody>
