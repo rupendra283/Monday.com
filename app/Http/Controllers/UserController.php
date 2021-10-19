@@ -39,9 +39,14 @@ class UserController extends Controller
         $user->last_name = $request->last_name;
         $user->mobile_no = $request->mobile_no;
         $user->email = $request->email;
-        $user->role = $request->role;
+        if ($request->role == 'Admin') {
+            $user->is_admin = 1;
+        } else {
+            $user->is_admin = 0;
+        }
+
         $user->password = Hash::make($request->password);
         $user->save();
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->with('message', 'User Created Succesfully');
     }
 }
