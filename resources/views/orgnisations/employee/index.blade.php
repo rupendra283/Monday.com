@@ -5,20 +5,19 @@
 @section('content')
 <div class="card">
     <div class="card-header border-bottom pb-2">
-        Total Users :
-    <a href="{{ route('user.create') }}" class="btn btn-primary btn-sm float-right">Add New</a>
+        Total Employee :
+    <a href="" class="btn btn-primary btn-sm float-right">Add New</a>
     </div>
     <div class="card-body">
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
                     <th>Sr No</th>
-                    <th>Name</th>
-                    <th>Mobile No</th>
-                    <th>Role</th>
+                    <th>Full Name</th>
+                    <th>Departmenet</th>
+                    <th>Joining Date</th>
                     <th>Status</th>
                     {{-- <th>Locations</th> --}}
-                    <th>Created At</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -26,7 +25,7 @@
                 @php
                     $x=1;
                 @endphp
-                @foreach ($users as $item)
+                @foreach ($employees as $item)
                 <tr>
                     <td>{{ $x++ }}</td>
                     <td>
@@ -48,28 +47,13 @@
                         </div>
                     </a>
                 </td>
-                    {{-- <td>{{ucfirst(trans ($item->first_name))}} {{ucfirst(trans ($item->last_name)) }}</td> --}}
-                    <td>{{ $item->mobile_no }}</td>
-                    @if ($item->is_admin == 1)
-                    <td>Admin</td>
-                    @else
-                    <td>Normal User</td>
-                    @endif
-                    @if ($item->status == 1)
-                    <td><span class="badge badge-primary">Active</span></td>
-
-                    @else
-                    <td><span class="badge badge-danger">Deactive</span></td>
-                    @endif
-                    {{-- <td>{{ $item->status == 1 ? 'Enable': 'Disable'}}</td> --}}
-                    <td>{{ $item->created_at }}</td>
+                 <td>{{ $item->department }}</td>
+                    <td>{{ $item->joining_date }}</td>
+                    <td>{{ $item->status }}</td>
                     {{-- <td><a href="">EDIT</a> --}}
                         <td>
                             <a href=""> <i class="fa fa-pencil-alt"></i></a>
-
-                            <a href="s" class="mx-2 " data-toggle="tooltip" data-placement="top" title="{{ ($item->status != 1)? 'Unlock Employee' : 'Lock Employee' }} "><i class="fa  fa-lg {{ ($item->status != 1)? 'fa-lock' : 'fa-unlock' }} " ></i></a>
-
-
+                            <a href="" class="mx-2 " data-toggle="tooltip" data-placement="top" title=""><i class="fa  fa-lg  " ></i></a>
                         </td>
 
                 </tr>
