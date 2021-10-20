@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LineOfBuisnessController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\MsEducationController;
+use App\Http\Controllers\Orgnisation\DepartmentController;
 use App\Http\Controllers\OrgnisationsController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -28,8 +29,6 @@ Route::get('/', function () {
 // Normal User Routes
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
 // Admin Routes
 Route::group(['middleware' => ['admin']], function () {
     Route::get('admin', [HomeController::class, 'admin'])->name('admin.dashboard');
@@ -58,6 +57,15 @@ Route::group(['middleware' => ['admin']], function () {
     Route::post('orgnisations/store', [OrgnisationsController::class, 'store'])->name('orgnisations.store');
     Route::get('orgnisations/edit', [OrgnisationsController::class, 'edit'])->name('orgnisations.edit');
     Route::get('orgnisations/delete/{id}', [OrgnisationsController::class, 'delete'])->name('orgnisation.delete');
+    // Deparment
+    Route::prefix('department')->name('department')->group(function () {
+        Route::get('/', [DepartmentController::class, 'index'])->name('.index');
+        Route::get('/create', [DepartmentController::class, 'create'])->name('.create');
+        Route::get('/store', [DepartmentController::class, 'create'])->name('.create');
+        Route::get('/edit{id}', [DepartmentController::class, 'edit'])->name('.edit');
+        Route::get('/update{id}', [DepartmentController::class, 'update'])->name('.update');
+        Route::get('/delete{id}', [DepartmentController::class, 'delete'])->name('.delete');
+    });
     //Employee Profile
     Route::get('employee', [EmployeeController::class, 'index'])->name('employee.index');
     Route::get('employee/create', [EmployeeController::class, 'index'])->name('employee.index');
