@@ -5,7 +5,11 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}
-                <span class="badge badge-primary float-right">Normal User</span>
+                    @if (Auth::user()->is_admin == 1)
+                    <span class="badge badge-primary float-right">Admin</span>
+                    @else
+                    <span class="badge badge-primary float-right">Normal User</span>
+                    @endif
             </div>
                 <div class="card-body">
                     @if (session('status'))
