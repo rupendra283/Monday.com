@@ -25,10 +25,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->is_admin == 1) {
-            return view('layouts.dashboard');
-        } else {
+        if (Auth::user()->status == 0) {
+            Auth::logout();
+            return redirect('login')->with('message', 'You Are Block By Admin');
+        }
+
+        if (Auth::user()->is_admin != 1) {
             return view('home');
+        } else {
+            return view('layouts.dashboard');
         }
     }
     public function admin()

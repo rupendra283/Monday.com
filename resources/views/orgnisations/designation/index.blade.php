@@ -1,12 +1,12 @@
 @extends('layouts.master')
-@section('title', 'Department')
+@section('title', 'Designation')
 @section('style')
 @endsection
 @section('content')
 <div class="card">
     <div class="card-header border-bottom pb-2">
-        Total Department :
-    <a href="{{ route('department.create') }}" class="btn btn-primary btn-sm float-right">Add New</a>
+        Total Designation : {{ count($designations) }}
+    <a href="{{ route('designation.create') }}" class="btn btn-primary btn-sm float-right">Add New</a>
     </div>
     <div class="card-body">
         @if (Session::has('message'))
@@ -21,7 +21,7 @@
             <thead>
                 <tr>
                     <th>Sr No</th>
-                    <th>Department Name</th>
+                    <th>Designation Name</th>
                     {{-- <th>Locations</th> --}}
                     <th>Description</th>
                     <th>Actions</th>
@@ -31,14 +31,14 @@
                 @php
                     $x=1;
                 @endphp
-                @foreach ($departments as $item)
+                @foreach ($designations as $item)
                 <tr>
                     <td>{{ $x++ }}</td>
                     <td>{{ $item->name }}</td>
                     <td>{{ $item->description }}</td>
                     <td>
-                        <a href="{{ route('department.edit',$item->id) }}">Edit</a>
-                        <a href="{{ route('department.delete',$item->id) }}" class="ml-2">Delete</a>
+                        <a href="{{ route('designation.edit',$item->id) }}">Edit</a>
+                        <a href="{{ route('designation.delete',$item->id) }}" class="ml-2">Delete</a>
                     </td>
                 </tr>
                 @endforeach

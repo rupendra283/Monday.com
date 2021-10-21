@@ -6,6 +6,7 @@ use App\Http\Controllers\LineOfBuisnessController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\MsEducationController;
 use App\Http\Controllers\Orgnisation\DepartmentController;
+use App\Http\Controllers\Orgnisation\DesignationController;
 use App\Http\Controllers\OrgnisationsController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -61,11 +62,22 @@ Route::group(['middleware' => ['admin']], function () {
     Route::prefix('department')->name('department')->group(function () {
         Route::get('/', [DepartmentController::class, 'index'])->name('.index');
         Route::get('/create', [DepartmentController::class, 'create'])->name('.create');
-        Route::get('/store', [DepartmentController::class, 'create'])->name('.create');
-        Route::get('/edit{id}', [DepartmentController::class, 'edit'])->name('.edit');
-        Route::get('/update{id}', [DepartmentController::class, 'update'])->name('.update');
-        Route::get('/delete{id}', [DepartmentController::class, 'delete'])->name('.delete');
+        Route::post('/store', [DepartmentController::class, 'store'])->name('.store');
+        Route::get('/edit/{id}', [DepartmentController::class, 'edit'])->name('.edit');
+        Route::put('/update/{id}', [DepartmentController::class, 'update'])->name('.update');
+        Route::get('/delete/{id}', [DepartmentController::class, 'delete'])->name('.delete');
     });
+
+    Route::prefix('designation')->name('designation')->group(function () {
+        Route::get('/', [DesignationController::class, 'index'])->name('.index');
+        Route::get('/create', [DesignationController::class, 'create'])->name('.create');
+        Route::post('/store', [DesignationController::class, 'store'])->name('.store');
+        Route::get('/edit/{id}', [DesignationController::class, 'edit'])->name('.edit');
+        Route::put('/update/{id}', [DesignationController::class, 'update'])->name('.update');
+        Route::get('/delete/{id}', [DesignationController::class, 'destroy'])->name('.delete');
+    });
+
+
     //Employee Profile
     Route::get('employee', [EmployeeController::class, 'index'])->name('employee.index');
     Route::get('employee/create', [EmployeeController::class, 'index'])->name('employee.index');
@@ -79,5 +91,6 @@ Route::group(['middleware' => ['admin']], function () {
         Route::get('index', [UserController::class, 'index'])->name('.index');
         Route::get('creta', [UserController::class, 'create'])->name('.create');
         Route::post('store', [UserController::class, 'store'])->name('.store');
+        Route::get('status/{id}', [UserController::class, 'status'])->name('.status');
     });
 });
