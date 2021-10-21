@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -48,5 +49,20 @@ class UserController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
         return redirect()->route('user.index')->with('message', 'User Created Succesfully');
+    }
+    public function status($id)
+    {
+        $user = User::find($id);
+        if ($user->is_admin == 1) {
+            return back()->with('message', 'You Can Not Change Status Of Admin');
+        }
+        if ($user->status == 1) {
+            $user->status = 0;
+            $user->save();
+        } else {
+            $user->status = 1;
+            $user->save();
+        }
+        return back();
     }
 }

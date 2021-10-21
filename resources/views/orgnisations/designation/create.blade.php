@@ -1,11 +1,11 @@
 @extends('layouts.master')
-@section('title', 'Department')
+@section('title', 'Designation')
 @section('style')
 @endsection
 @section('content')
 <div class="card">
     <div class="card-header border-bottom pb-2">
-      Department
+      Designation
     </div>
     <div class="card-body">
         <div class="page-body">
@@ -13,11 +13,11 @@
                 <div class="card-header card-info card-outline border-bottom"><h5>Add Department Details</h5>
                             </div>
                 <div class="card-body">
-                <form action="{{ route('department.store') }}" method="post">
+                <form action="{{ route('designation.store') }}" method="post">
                     @csrf
                     <div class="row">
                         <div class="form-group col-md-4">
-                            <label for="name">Department Name</label>
+                            <label for="name">designation Name</label>
                             <input id="name" class="form-control" type="text" name="name">
                             @error('name')
                                 <small class="form-text text-danger">{{ $message }}</small>

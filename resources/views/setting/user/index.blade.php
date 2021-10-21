@@ -9,6 +9,14 @@
     <a href="{{ route('user.create') }}" class="btn btn-primary btn-sm float-right">Add New</a>
     </div>
     <div class="card-body">
+        @if (Session::has('message'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Success!</strong>{{ Session::get('message') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @endif
         <table id="example" class="table table-striped table-bordered" style="width:100%">
             <thead>
                 <tr>
@@ -67,7 +75,7 @@
                         <td>
                             <a href=""> <i class="fa fa-pencil-alt"></i></a>
 
-                            <a href="s" class="mx-2 " data-toggle="tooltip" data-placement="top" title="{{ ($item->status != 1)? 'Unlock Employee' : 'Lock Employee' }} "><i class="fa  fa-lg {{ ($item->status != 1)? 'fa-lock' : 'fa-unlock' }} " ></i></a>
+                            <a href="{{ route('user.status',$item->id) }}" class="mx-2 " data-toggle="tooltip" data-placement="top" title="{{ ($item->status != 1)? 'Unlock Employee' : 'Lock Employee' }} "><i class="fa  fa-lg {{ ($item->status != 1)? 'fa-lock' : 'fa-unlock' }} " ></i></a>
 
 
                         </td>

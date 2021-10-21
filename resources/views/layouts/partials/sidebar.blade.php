@@ -76,13 +76,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/boxed.html" class="nav-link">
+                <a href="{{ route('department.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Department</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
+                <a href="{{ route('designation.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Designations</p>
                 </a>
