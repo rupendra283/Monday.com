@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LineOfBuisnessController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\MsEducationController;
 use App\Http\Controllers\Orgnisation\DepartmentController;
 use App\Http\Controllers\Orgnisation\DesignationController;
+use App\Http\Controllers\Orgnisation\EmployeeController;
 use App\Http\Controllers\OrgnisationsController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SourceOfHireController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -51,6 +52,13 @@ Route::group(['middleware' => ['admin']], function () {
     Route::get('educattion', [MsEducationController::class, 'index'])->name('education.index');
     Route::get('education/create', [MsEducationController::class, 'create'])->name('education.create');
     Route::post('education/store', [MsEducationController::class, 'store'])->name('education.store');
+    // Source Of Hire
+    Route::get('sourceofhire', [SourceOfHireController::class, 'index'])->name('sourceofhire.index');
+    Route::get('sourceofhire/create', [SourceOfHireController::class, 'create'])->name('sourceofhire.create');
+    Route::post('sourceofhire/store', [SourceOfHireController::class, 'store'])->name('sourceofhire.store');
+    Route::get('sourceofhire/edit/{id}', [SourceOfHireController::class, 'edit'])->name('sourceofhire.edit');
+    Route::put('sourceofhire/update/{id}', [SourceOfHireController::class, 'update'])->name('sourceofhire.update');
+    Route::get('sourceofhire/delete/{id}', [SourceOfHireController::class, 'destroy'])->name('sourceofhire.delete');
     // Orgnisations
     //Orgnisations Master
     Route::get('orgnisations', [OrgnisationsController::class, 'index'])->name('orgnisations.index');
@@ -93,4 +101,7 @@ Route::group(['middleware' => ['admin']], function () {
         Route::post('store', [UserController::class, 'store'])->name('.store');
         Route::get('status/{id}', [UserController::class, 'status'])->name('.status');
     });
+
+    Route::get('employee', [EmployeeController::class, 'index'])->name('employee.index');
+    Route::get('employee/create', [EmployeeController::class, 'create'])->name('employee.create');
 });

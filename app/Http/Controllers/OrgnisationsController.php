@@ -18,7 +18,6 @@ class OrgnisationsController extends Controller
     public function index()
     {
         $orgnisations = Orgnisations::with('lineOFBuisness')->get();
-        dd($orgnisations);
         return view('orgnisations.index', compact('orgnisations'));
     }
 
