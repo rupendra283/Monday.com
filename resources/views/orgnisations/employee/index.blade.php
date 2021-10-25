@@ -6,7 +6,7 @@
 <div class="card">
     <div class="card-header border-bottom pb-2">
         Total Employee :
-    <a href="" class="btn btn-primary btn-sm float-right">Add New</a>
+    <a href="{{ route('employee.create') }}" class="btn btn-primary btn-sm float-right">Add New</a>
     </div>
     <div class="card-body">
         <table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -47,8 +47,8 @@
                         </div>
                     </a>
                 </td>
-                 <td>{{ $item->department }}</td>
-                    <td>{{ $item->joining_date }}</td>
+                 <td>{{ $item->department->name }}</td>
+                    <td>{{ $item->date_of_joining }}</td>
                     <td>{{ $item->status }}</td>
                     {{-- <td><a href="">EDIT</a> --}}
                         <td>

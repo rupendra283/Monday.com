@@ -14,8 +14,8 @@ class LineOfBuisness extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function lineOfBuisness()
+    public function orgnisation()
     {
-        return $this->hasMany(Orgnisations::class);
+        return $this->hasOne(Orgnisations::class);
     }
 }
