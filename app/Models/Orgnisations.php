@@ -15,8 +15,8 @@ class Orgnisations extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function lineOFBuisness()
+    public function lineofbuisness()
     {
-        return $this->belongsTo(LineOfBuisness::class);
+        return $this->belongsTo(LineOfBuisness::class, 'line_of_buisness_id', 'id');
     }
 }

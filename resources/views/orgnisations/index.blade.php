@@ -29,7 +29,7 @@
                 <tr>
                     <td>{{ $x++ }}</td>
                     <td>{{ $item->name }}</td>
-                    <td>{{ $item->lineOFBuisness->name }}</td>
+                    <td>{{ $item->lineofbuisness->name }}</td>
                     <td>{{ $item->email }}</td>
                     <td>{{ $item->mobile_no }}</td>
                     <td><a href="{{ route('orgnisations.edit',$item->id) }}">EDIT</a></td>
