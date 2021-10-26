@@ -217,6 +217,46 @@
                                 </div>
                             </div>
 
+                            {{-- Work History --}}
+
+                            <div class="card mt-4" id="work_history">
+                                <div class="card-header">
+                                  Work History
+                                </div>
+                                <div class="card-body form-main">
+                                 <div class="row form-block">
+                                        <div class="form-group col-md-2">
+                                            <label for="company_name">Company Name</label>
+                                            <input id="company_name" class="form-control" type="text" name="company_name">
+                                            </select>
+                                     </div>
+                                     <div class="form-group col-md-2">
+                                        <label for="company_name">Job Title</label>
+                                        <input id="company_name" class="form-control" type="text" name="company_name">
+                                        </select>
+                                 </div>
+                                 <div class="form-group col-md-2">
+                                    <label for="from_date">From Date</label>
+                                    <input id="from_date" class="form-control" type="text" name="from_date">
+                                    </select>
+                             </div>
+                             <div class="form-group col-md-2">
+                                <label for="to_date">To Date</label>
+                                <input id="to_date" class="form-control" type="text" name="to_date">
+                                </select>
+                         </div>
+                                <div class="form-group col-md-2">
+                                    <label for="description">Description</label>
+                                    <textarea class="form-control" name="description" rows="1" id="description"></textarea>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <a href="#" class="clone"><i class="fa fa-plus"></i></a>
+                                            <a href="#" class="delete mx-2"><i class="fa fa-minus"></i></a>
+                                        </div>
+                                 </div>
+                                </div>
+                            </div>
+
                             <div class="card mt-4">
                                 <div class="card-header">
                                    Bank Details
@@ -226,17 +266,17 @@
                                         <div class="form-group col-md-3">
                                             <label for="bank_name">Bank Name</label>
                                             <input id="bank_name" class="form-control" type="text" name="bank_name">
-                                            </select>
+
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="account_no">Bank Account No</label>
                                         <input id="account_no" class="form-control" type="text" name="account_no">
-                                        </select>
+
                                 </div>
                                <div class="form-group col-md-3">
                                         <label for="branch_name">Branch Name</label>
                                         <input id="branch_name" class="form-control" type="text" name="branch_name">
-                                        </select>
+
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="ifsc_code">IFSC Code</label>
@@ -314,6 +354,19 @@
         }
         });
         });
+    });
+    $(document).ready(function () {
+          $('.clone').click(function (e) {
+              e.preventDefault();
+            var form = $('.form-block').clone();
+            $('.form-main').append(form)
+            // console.log(form);
+
         });
+        $('.delete').click(function (e){
+            e.preventDefault();
+            $('.form-main').remove();
+        })
+    });
         </script>
     @endsection
